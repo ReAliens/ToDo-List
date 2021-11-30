@@ -1,8 +1,8 @@
 body {
-    background-color: bisque;
+  background-color: bisque;
 }
 
 .hello {
-    color: red;
-    background: url('./icon.png');
+  color: red;
+  background: url('./icon.png');
 }
