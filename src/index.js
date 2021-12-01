@@ -1,11 +1,9 @@
-import _ from 'lodash';
+import UI from './JS/uiComponent.js';
 import './style.css';
 
-function component() {
-  const element = document.createElement('div');
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-  return element;
-}
+const appRun = () => {
+  UI.showTask();
+  UI.addbutton();
+};
 
-document.body.appendChild(component());
+window.onload = appRun;

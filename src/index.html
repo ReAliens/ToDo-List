@@ -3,9 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wbpack Exercise</title>
+    <title>To Do App</title>
   </head>
   <body>
-    <h1>Hello webpack!</h1>
+    <h1>To Do List</h1>
+    <div class="main-container">
+      <div class="header">
+        <h2>Today's To Do</h2>
+      </div>
+      <div class="container-body">
+        <form>
+          <div class="input-container">
+            <input id="task" name="task" placeholder="Add to Your List ..." />
+            <button type="submit" class="submitButton"></button>
+          </div>
+        </form>
+        <div class="tasks"></div>
+        <div class="button-container">
+          <button class="clear-button">Clear All Compeleted</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
