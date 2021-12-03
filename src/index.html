@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>To Do App</title>
   </head>
   <body>
@@ -12,9 +19,15 @@
         <h2>Today's To Do</h2>
       </div>
       <div class="container-body">
-        <form>
+        <form id="formContainer" class="form-container">
           <div class="input-container">
-            <input id="task" name="task" placeholder="Add to Your List ..." />
+            <input
+              type="text"
+              id="task"
+              name="task"
+              maxlength="30"
+              placeholder="Add to Your List ..."
+            />
             <button type="submit" class="submitButton"></button>
           </div>
         </form>
