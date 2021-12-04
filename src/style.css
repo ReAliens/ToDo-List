@@ -49,9 +49,12 @@ body {
 }
 
 .task-holder input {
-  margin-bottom: 35px;
-  height: 20px;
-  width: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  resize: none;
+  width: 100%;
 }
 
 .container-body input::placeholder {
@@ -82,15 +85,6 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
-}
-
-.task-holder input {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  font-size: 24px;
-  resize: none;
-  width: 100%;
 }
 
 .input-container {
