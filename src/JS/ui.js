@@ -20,7 +20,9 @@ class UIComponent {
     descriptionLabel.value = task.desc;
     descriptionLabel.maxLength = '30';
     descriptionLabel.id = 'userUpdate';
-    icon.className = 'fas fa-ellipsis-v';
+    icon.className = 'fa fa-trash del';
+    icon.id = task.index;
+    icon.style.cursor = 'pointer';
     descriptionLabel.addEventListener('change', Store.updateDesc);
     taskHolder.append(input, descriptionLabel, icon);
     tasksContainer.appendChild(taskHolder);
@@ -43,6 +45,12 @@ class UIComponent {
         compTask.remove();
       }
     });
+  }
+
+  static delTask(task) {
+    if (task.classList.contains('del')) {
+      task.parentElement.remove();
+    }
   }
 }
 

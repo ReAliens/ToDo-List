@@ -39,5 +39,10 @@ document.addEventListener('DOMContentLoaded', UIComponent.showTasks);
 
 clearButton.addEventListener('click', () => {
   UIComponent.deleteCompTasks();
-  Store.deleteCompTask();
+  Store.deleteCompTasks();
+});
+
+document.querySelector('.tasks').addEventListener('click', (e) => {
+  UIComponent.delTask(e.target);
+  Store.deleteTask(e.target.id);
 });

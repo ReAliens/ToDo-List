@@ -26,7 +26,7 @@ class Store {
     });
   }
 
-  static deleteCompTask() {
+  static deleteCompTasks() {
     const allTasks = Store.getTasks();
     const newTasks = allTasks.filter((task) => task.done === false);
     newTasks.forEach((task, i) => {
@@ -49,6 +49,15 @@ class Store {
       }
     });
     localStorage.setItem('taskList', JSON.stringify(oldTasks));
+  }
+
+  static deleteTask(taskID) {
+    const tasks = Store.getTasks();
+    const newTasks = tasks.filter((task) => task.index !== Number(taskID));
+    newTasks.forEach((task, i) => {
+      task.index = i;
+    });
+    localStorage.setItem('taskList', JSON.stringify(newTasks));
   }
 }
 
