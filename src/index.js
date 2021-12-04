@@ -5,6 +5,7 @@ import Task from './JS/class.js';
 import enterButton from './images/enter.png';
 
 const taskDesc = document.getElementById('task');
+const clearButton = document.getElementById('clear');
 
 function addbutton() {
   const newICon = new Image();
@@ -35,3 +36,8 @@ document.querySelector('#formContainer').addEventListener('submit', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', UIComponent.showTasks);
+
+clearButton.addEventListener('click', () => {
+  UIComponent.deleteCompTasks();
+  Store.deleteCompTask();
+});
