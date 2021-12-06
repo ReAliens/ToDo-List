@@ -15,8 +15,7 @@ this is a simple todo list
 
 ## Live Demo
 
-https://realiens.github.io/firstCapstone/
-
+https://realiens.github.io/ToDo-List/
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -27,7 +26,7 @@ Live server on my local machine
 
 ### Setup
 
-Open with live server on vscode
+Open with npm package maneger 
 
 ### Install
 no installations
@@ -37,12 +36,6 @@ no installations
  
 Deployed with github pages as a host
 
-
-## Acknowledgements
-Cindy Shin
-GUI & Graphic Designer
-
-Seoul, Korea, Republic of
 
 
 ## Authors
