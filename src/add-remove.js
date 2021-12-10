@@ -1,4 +1,5 @@
 import { AddChangeStatus } from './status.js';
+import DeleteAllCompletedTasks from './deleteTask.js';
 
 let addButton;
 let addInput;
@@ -108,25 +109,6 @@ function EditTask(indexToUpdate, descriptionToUpdate) {
   }
 }
 
-function DeleteTask(indexToDelete) {
-  taskArray = taskArray.filter((task) => task.index !== indexToDelete);
-  indexToAssign -= 1;
-  UpdateIndexes();
-  DisplayTask(taskArray);
-}
-
-function DeleteAllCompletedTasks(taskArray) {
-  if (localStorage.getItem('taskArray')) {
-    taskArray = JSON.parse(localStorage.getItem('taskArray'));
-  }
-  // eslint-disable-next-line
-  const filteredArray = taskArray.filter((task) => task.completed != true);
-  UpdateIndexes();
-  DisplayTask(filteredArray);
-  localStorage.setItem('taskArray', JSON.stringify(filteredArray));
-  return filteredArray;
-}
-
 function AddCRUDEvents() {
   addButton.addEventListener('click', () => AddTask(addInput.value));
   clearButton.addEventListener('click', () => DeleteAllCompletedTasks());
@@ -136,12 +118,9 @@ DisplayTask(taskArray);
 
 export {
   AssignButtons,
-  AddTask,
-  DeleteTask,
-  innerFunctionEditTask,
+  AddTask,  innerFunctionEditTask,
   AddCRUDEvents,
   UpdateIndexes,
   DisplayTask,
-  DeleteAllCompletedTasks,
   AddChangeStatus,
 };
