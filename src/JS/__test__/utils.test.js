@@ -1,4 +1,10 @@
-import { AssignButtons, AddTask, DeleteTask } from '../utils.js';
+import { ChangeStatus } from '../status.js';
+import {
+  AssignButtons,
+  AddTask,
+  DeleteTask,
+  innerFunctionEditTask,
+} from '../utils.js';
 import virtualDom from '../__mock__/virtualDom.js';
 import mockedLocalStorage from '../__mock__/virtualStorage.js';
 
@@ -85,5 +91,37 @@ describe('Delete Task function test', () => {
     expect(JSON.parse(window.localStorage.getItem('taskArray'))).toHaveLength(
       0,
     );
+  });
+});
+
+describe('Edit desc function', () => {
+  test('Edit the description of a task', () => {
+    AddTask('task number 1');
+    innerFunctionEditTask(1, 'function updated successfully');
+    expect(
+      JSON.parse(window.localStorage.getItem('taskArray'))[0].description,
+    ).toBe('function updated successfully');
+  });
+
+  test('Edit the description of a task', () => {
+    const list = document.querySelector('.list-content');
+    const content = list.children[0].children[0].children[1].innerHTML;
+
+    AddTask('task number 1');
+    innerFunctionEditTask(1, 'function updated successfully');
+    expect(content).toBe('function updated successfully');
+  });
+});
+
+describe('Checkbox event', () => {
+  test('Updates the completed status from the element', () => {
+    const list = document.querySelector('.list-content');
+    const checkbox = list.children[0].children[0].children[0];
+    checkbox.checked = true;
+    const taskArray = JSON.parse(window.localStorage.getItem('taskArray'));
+
+    ChangeStatus(taskArray[0], checkbox);
+
+    expect(checkbox.getAttribute('completed')).toBe('true');
   });
 });
