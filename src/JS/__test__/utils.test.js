@@ -11,7 +11,7 @@ describe('AddTask Function', () => {
     });
   });
 
-  test('Add task test', () => {
+  test('Add task test to virtual Dom', () => {
     // Assign
     const list = document.querySelector('.list-content');
 
@@ -22,15 +22,27 @@ describe('AddTask Function', () => {
     // Assert
     expect(list.children).toHaveLength(1);
   });
+
+  test('Add task to local Storage', () => {
+    // Act
+    AssignButtons();
+    AddTask('task number 2');
+    AddTask('task number 3');
+
+    // Assert
+    expect(
+      JSON.parse(window.localStorage.getItem('taskArray'))[1].description,
+    ).toBe('task number 2');
+  });
 });
 
-describe('DeleteTask function', () => {
+describe('Delete Task function test', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'localStorage', {
       value: mockedLocalStorage,
     });
   });
-  test('Remove one task and check on the list DOM', () => {
+  test('Remove one task from virtual Dom', () => {
     // Assign
     const list = document.querySelector('.list-content');
     // Act
@@ -39,7 +51,7 @@ describe('DeleteTask function', () => {
     // Assert
     expect(list.children).toHaveLength(2);
   });
-  test('Remove every task one by one and check on the list DOM', () => {
+  test('Remove every task from virtual Dom', () => {
     // Assign
     const list = document.querySelector('.list-content');
     // Act
@@ -50,7 +62,7 @@ describe('DeleteTask function', () => {
     // Assert
     expect(list.children).toHaveLength(0);
   });
-  test('Remove one task and check on the localStorage', () => {
+  test('Remove one task from localstorage', () => {
     // Act
     AssignButtons();
     AddTask('task number 1');
@@ -61,7 +73,7 @@ describe('DeleteTask function', () => {
       JSON.parse(window.localStorage.getItem('taskArray'))[0].description,
     ).toBe('task number 2');
   });
-  test('Remove all tasks and check on the localStorage', () => {
+  test('Remove all tasks from localStorage', () => {
     // Act
     AssignButtons();
     AddTask('task number 1');
@@ -70,6 +82,8 @@ describe('DeleteTask function', () => {
     DeleteTask(1);
     DeleteTask(1);
     // Assert
-    expect(JSON.parse(window.localStorage.getItem('taskArray'))).toHaveLength(0);
+    expect(JSON.parse(window.localStorage.getItem('taskArray'))).toHaveLength(
+      0,
+    );
   });
 });
