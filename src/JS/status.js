@@ -24,5 +24,4 @@ function AddChangeStatus(element, elementHTML) {
   elementHTML.addEventListener('change', () => ChangeStatus(element, elementHTML));
 }
 
-// eslint-disable-next-line
 export { ChangeStatus, AddChangeStatus };

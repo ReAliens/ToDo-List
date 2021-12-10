@@ -2,6 +2,6 @@
 import _ from 'lodash';
 import './style.css';
 // eslint-disable-next-line
-import { AddCRUDEvents } from './add-remove.js';
+import { AddCRUDEvents } from './JS/utils.js';
 
 AddCRUDEvents();
