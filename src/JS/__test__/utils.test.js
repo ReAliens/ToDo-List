@@ -89,7 +89,9 @@ describe('Delete Task function test', () => {
     DeleteTask(1);
     DeleteTask(1);
     // Assert
-    expect(JSON.parse(window.localStorage.getItem('taskArray'))).toHaveLength(0);
+    expect(JSON.parse(window.localStorage.getItem('taskArray'))).toHaveLength(
+      0,
+    );
   });
 });
 
